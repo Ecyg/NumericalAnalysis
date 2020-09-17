@@ -11,11 +11,11 @@ int main(){
 	scanf("%lf", &a[0]);
 	printf("\n\nThe values of iterations are : \n\n");
 	printf("n\tx_n\t\tf(x_n)\t\tAbs Error\tRelative Error\n");
-	while (c > 0.00000000001){
+	while (c >= 0.000000000001 || d >= 0.000000000001){
 		a[j+1] = fpi(a[j]);
 		c = a[j+1] - a[j];
-		c = fabs(c);
-		d = fabs((a[j+1] - a[j])) /fabs((a[j+1]));
+		c = fabs(c); // absolute error
+		d = fabs((a[j+1] - a[j])) /fabs((a[j+1])); //relative error
 		printf("%d\t%0.13lf\t%0.13lf\t%0.13lf\t%0.13lf\n", j, a[j],a[j+1],c,d);
 		j++;
 	}
